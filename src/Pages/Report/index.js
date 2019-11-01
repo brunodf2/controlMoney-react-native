@@ -1,15 +1,20 @@
 import React from 'react';
-// import {View, Text} from 'react-native';
+import {View, Picker} from 'react-native';
 
-import {Container, Button} from './styles';
-
-import BalancePanel from '../../components/BalancePanel';
+import BalanceLabel from '../../components/BalanceLabel';
 import EntrySummary from '../../components/EntrySummary';
-
 import EntryList from '../../components/EntryList';
 
-const Main = ({navigation}) => {
-  const currentBalance = 2065.9;
+import {
+  Container,
+  SubmitButton,
+  SubmitButtonText,
+  CancelButton,
+  CancelButtonText,
+} from './styles';
+
+export default function Report() {
+  const currenteBalance = 2065.44;
 
   const entriesGrouped = [
     {key: '1', description: 'Alimentação', amount: 210},
@@ -27,15 +32,24 @@ const Main = ({navigation}) => {
 
   return (
     <Container>
-      <BalancePanel currentBalance={currentBalance} />
-      <Button
-        title="Adicionar"
-        onPress={() => navigation.navigate('NewEntry')}
-      />
+      <BalanceLabel currenteBalance={currenteBalance} />
+      <View>
+        <Picker>
+          <Picker.Item label="Todas Categorias" />
+        </Picker>
+        <Picker>
+          <Picker.Item label="Últimos 7 dias" />
+        </Picker>
+      </View>
       <EntrySummary entriesGrouped={entriesGrouped} />
       <EntryList entries={entries} />
+
+      <SubmitButton>
+        <SubmitButtonText>Salvar</SubmitButtonText>
+      </SubmitButton>
+      <CancelButton>
+        <CancelButtonText>Fechar</CancelButtonText>
+      </CancelButton>
     </Container>
   );
-};
-
-export default Main;
+}

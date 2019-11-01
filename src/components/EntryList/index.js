@@ -5,10 +5,10 @@ import {Container} from './styles';
 
 import EntryListItem from './EntryListItem';
 
-export default function EntryList() {
+export default function EntryList({entries}) {
   return (
     <Container>
-      <EntryListItem />
+      <EntryListItem entries={entries} />
     </Container>
   );
 }

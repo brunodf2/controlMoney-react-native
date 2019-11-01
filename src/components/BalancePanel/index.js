@@ -6,12 +6,11 @@ import {Container, Button} from './styles';
 import BalancePanelLabel from './BalancePanelLabel';
 import BalancePanelChart from './BalancePanelChart';
 
-export default function BalancePanel() {
+export default function BalancePanel({currentBalance}) {
   return (
     <Container>
-      <BalancePanelLabel />
+      <BalancePanelLabel currentBalance={currentBalance} />
       <BalancePanelChart />
-      <Button title="Adicionar" />
     </Container>
   );
 }

@@ -3,17 +3,17 @@ import React from 'react';
 
 import {Container, Text, FlatList, List} from './styles';
 
-export default function EntryListItem() {
+export default function EntryListItem({entries}) {
   return (
     <Container>
       <Text>Últimos Lancamentos</Text>
       <FlatList
-        data={[
-          {key: 'Padaria: $200,00'},
-          {key: 'Bar Barns: $150,00'},
-          {key: 'Dona Zú: $120,00'},
-        ]}
-        renderItem={({item}) => <List>{item.key}</List>}
+        data={entries}
+        renderItem={({item}) => (
+          <List>
+            {item.description} - ${item.amount}
+          </List>
+        )}
       />
     </Container>
   );

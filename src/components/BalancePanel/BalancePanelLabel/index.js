@@ -3,11 +3,11 @@ import React from 'react';
 
 import {Container, Text, Saldo} from './styles';
 
-export default function BalancePanelLabel() {
+export default function BalancePanelLabel({currentBalance}) {
   return (
     <Container>
       <Text>Saldo atual</Text>
-      <Saldo>$2.102,45</Saldo>
+      <Saldo>{currentBalance}</Saldo>
     </Container>
   );
 }

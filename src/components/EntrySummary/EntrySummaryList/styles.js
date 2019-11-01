@@ -12,5 +12,5 @@ export const List = styled.Text`
 `;
 
 export const FlatList = styled.FlatList`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
